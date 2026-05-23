@@ -9,9 +9,7 @@ export const Auth = ()=>{
 
 
     useEffect(()=>{
-        console.log("You are here 1")
         if(flag){
-            console.log("You are here")
             fetch('http://localhost:8080/auth/login',{
             method: 'POST',
             headers:{
@@ -23,7 +21,6 @@ export const Auth = ()=>{
             })
         }).then((res)=>res.json()).then((res)=> setToken(res.token));
         }
-        console.log("You are here 2")
     },[flag])
     return <div>
         <input type="text" placeholder="Username" onChange={(e)=> setUsername(e.target.value)} value={username}/>

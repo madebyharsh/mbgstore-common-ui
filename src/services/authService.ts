@@ -91,7 +91,13 @@ export const authService = {
    */
   logout: async (): Promise<void> => {
     try {
-      await axiosInstance.post(API_ENDPOINTS.LOGOUT);
+      await axiosInstance.post(API_ENDPOINTS.LOGOUT, 
+        {"refreshToken": storage.getToken()}
+    ,{
+        headers: {
+          Authorization: `Bearer ${storage.getToken()}`,
+        },
+    });
     } finally {
       storage.removeToken();
     }

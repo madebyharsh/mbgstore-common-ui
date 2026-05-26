@@ -12,7 +12,7 @@ export const API_ENDPOINTS = {
   // Auth endpoints
   SIGNUP: 'http://localhost:8080/auth/signup',
   TOKEN: 'http://localhost:8080/auth/login',
-  LOGOUT: '/logout',
+  LOGOUT: 'http://localhost:8080/auth/logout',
   
   // Inventory endpoints (examples)
   INVENTORY: '/inventory',

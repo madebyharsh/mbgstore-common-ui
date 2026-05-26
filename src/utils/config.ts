@@ -10,7 +10,7 @@ export const CONFIG = {
 
 export const API_ENDPOINTS = {
   // Auth endpoints
-  LOGIN: 'http://localhost:8080/auth/token',
+  SIGNUP: 'http://localhost:8080/auth/signup',
   TOKEN: 'http://localhost:8080/auth/login',
   LOGOUT: '/logout',
   

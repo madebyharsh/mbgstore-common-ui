@@ -12,12 +12,33 @@ export interface LoginPayload {
   password: string;
 }
 
+export interface AddressRequest {
+  addressLine1: string;
+  addressLine2?: string;
+  city: string;
+  state: string;
+  pincode: string;
+  latitude?: number | null;
+  longitude?: number | null;
+  isDefault?: boolean;
+}
+
+export type AccountStatus =
+  | 'ACTIVE'
+  | 'INACTIVE'
+  | 'LOCKED';
+
 export interface SignupPayload {
-  name: string;
+  fullName: string;
   email: string;
-  username: string;
+  phone: string;
   password: string;
-  company: string;
+
+  addresses?: AddressRequest[];
+
+  status?: AccountStatus;
+
+  roleNames?: string[];
 }
 
 export interface AuthResponse {
@@ -54,7 +75,7 @@ export const authService = {
    */
   signup: async (payload: SignupPayload): Promise<AuthResponse> => {
     const response = await axiosInstance.post<AuthResponse>(
-      API_ENDPOINTS.LOGIN,
+      API_ENDPOINTS.SIGNUP,
       payload
     );
     

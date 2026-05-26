@@ -8,7 +8,7 @@ import { API_ENDPOINTS } from '@/utils/config';
 import { storage } from '@/utils/storage';
 
 export interface LoginPayload {
-  username: string;
+  email: string;
   password: string;
 }
 

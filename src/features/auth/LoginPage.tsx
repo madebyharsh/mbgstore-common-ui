@@ -15,7 +15,7 @@ import { useNotification } from '@/hooks';
 import styles from './AuthPage.module.css';
 
 interface FormErrors {
-  username?: string;
+  email?: string;
   password?: string;
   submit?: string;
 }
@@ -24,15 +24,15 @@ export function LoginPage() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const { error: showError } = useNotification();
-  const [formData, setFormData] = useState({ username: '', password: '' });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isLoading, setIsLoading] = useState(false);
 
   const validateForm = () => {
     const newErrors: FormErrors = {};
 
-    if (!formData.username.trim()) {
-      newErrors.username = 'Username is required';
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
     }
     if (!formData.password) {
       newErrors.password = 'Password is required';
@@ -83,14 +83,14 @@ export function LoginPage() {
             )}
 
             <Input
-              label="Username"
-              type="text"
-              placeholder="Enter your username"
-              value={formData.username}
+              label="Email"
+              type="email"
+              placeholder="Enter your email"
+              value={formData.email}
               onChange={(e) =>
-                setFormData({ ...formData, username: e.target.value })
+                setFormData({ ...formData, email: e.target.value })
               }
-              error={errors.username}
+              error={errors.email}
               disabled={isLoading}
             />
 
